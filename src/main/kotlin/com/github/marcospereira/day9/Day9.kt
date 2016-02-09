@@ -38,8 +38,8 @@ class Day9 : Day() {
             it.pairMap { cityA, cityB ->
                 allRoutes.filter { it.validFor(cityA, cityB) }.first()
             }
-            }
         }
+    }
 
     fun getPermutation(currentPermutation: Deque<City>, completePermutations: MutableList<List<City>>) {
         val currentCity = currentPermutation.last
