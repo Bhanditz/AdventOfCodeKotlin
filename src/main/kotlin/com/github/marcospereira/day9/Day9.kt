@@ -23,7 +23,7 @@ class Day9 : Day() {
         }.filterNotNull().toList()
     }
 
-    fun getRoutes(): List<List<Route>> {
+    val permutations by lazy {
         val allCities = allRoutes.map { it.sourceCity }.toSet()
         val completePermutations = LinkedList<List<City>>()
 
@@ -34,12 +34,12 @@ class Day9 : Day() {
             getPermutation(currentPermutation, completePermutations)
         }
 
-        return completePermutations.map {
+        completePermutations.map {
             it.pairMap { cityA, cityB ->
                 allRoutes.filter { it.validFor(cityA, cityB) }.first()
             }
+            }
         }
-    }
 
     fun getPermutation(currentPermutation: Deque<City>, completePermutations: MutableList<List<City>>) {
         val currentCity = currentPermutation.last
@@ -64,12 +64,11 @@ class Day9 : Day() {
     }
 
     override fun part1(): Any? {
-        val permutations = getRoutes()
         return permutations.minBy { it.sumBy { it.distance } }?.sumBy { it.distance }
     }
 
     override fun part2(): Any? {
-        throw UnsupportedOperationException()
+        return permutations.maxBy { it.sumBy { it.distance } }?.sumBy { it.distance }
     }
 }
 
