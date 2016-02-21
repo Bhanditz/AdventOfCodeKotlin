@@ -2,7 +2,7 @@ group 'com.github.marcospereira'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.0-rc-1036'
+    ext.kotlin_version = '1.0.0'
     repositories {
         mavenCentral()
     }
@@ -24,6 +24,7 @@ repositories {
         url "http://repository.jetbrains.com/all/"
     }
 }
+//noinspection GroovyAssignabilityCheck
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
 }
