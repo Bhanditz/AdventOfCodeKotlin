@@ -14,7 +14,7 @@ class Day10 : Day() {
     }
 
     override fun part2(): Any? {
-        return lookAndSay(challenge, 50).length
+        return lookAndSay(challenge, 50).length //warning, takes about 2 hours
     }
 
     fun lookAndSay(input: String, iterations: Int): String {
